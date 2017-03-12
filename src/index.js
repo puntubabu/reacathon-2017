@@ -9,9 +9,9 @@ import { Route } from 'react-router';
 
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 
-import reducers from '../stores/reducers'; // Or wherever you keep your reducers
+import reducers from './stores/reducers'; // Or wherever you keep your reducers
 
-import App from './App';
+import App from './pages/openTable';
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -31,11 +31,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <Route exact path="/" component={App}/>
-      </div>
-    </ConnectedRouter>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
